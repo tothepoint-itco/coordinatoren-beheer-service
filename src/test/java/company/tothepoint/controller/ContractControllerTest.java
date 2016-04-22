@@ -1,7 +1,7 @@
 package company.tothepoint.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import company.tothepoint.ContractApplication;
+import company.tothepoint.BeheerApplication;
 import company.tothepoint.model.bediende.Bediende;
 import company.tothepoint.model.businessunit.BusinessUnit;
 import company.tothepoint.model.contract.Contract;
@@ -46,7 +46,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = ContractApplication.class)
+@SpringApplicationConfiguration(classes = BeheerApplication.class)
 @WebAppConfiguration
 public class ContractControllerTest {
     @Rule
