@@ -17,7 +17,7 @@ public class Beheerder {
     private String voorNaam;
     @NotNull
     @Size(min = 1, max = 255)
-    private String famillieNaam;
+    private String familieNaam;
     @NotNull
     @Size(min = 1, max = 255)
     private String email;
@@ -26,10 +26,9 @@ public class Beheerder {
     private String passwoord;
 
     public Beheerder(){}
-    public Beheerder(String id, String voorNaam, String famillieNaam, String email, String passwoord) {
-        this.id = id;
+    public Beheerder(String voorNaam, String familieNaam, String email, String passwoord) {
         this.voorNaam = voorNaam;
-        this.famillieNaam = famillieNaam;
+        this.familieNaam = familieNaam;
         this.email = email;
         this.passwoord = passwoord;
     }
@@ -42,8 +41,8 @@ public class Beheerder {
         return voorNaam;
     }
 
-    public String getFamillieNaam() {
-        return famillieNaam;
+    public String getFamilieNaam() {
+        return familieNaam;
     }
 
     public String getEmail() {
@@ -66,8 +65,8 @@ public class Beheerder {
         this.email = email;
     }
 
-    public void setFamillieNaam(String famillieNaam) {
-        this.famillieNaam = famillieNaam;
+    public void setFamilieNaam(String familieNaam) {
+        this.familieNaam = familieNaam;
     }
 
     public void setPasswoord(String passwoord) {

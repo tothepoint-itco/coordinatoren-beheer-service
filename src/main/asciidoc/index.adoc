@@ -1,4 +1,4 @@
-= Contract-service Getting Started Guide
+= Beheerder-service Getting Started Guide
 Kaj Van der Hallen;
 :doctype: book
 :icons: font
@@ -10,14 +10,14 @@ Kaj Van der Hallen;
 [introduction]
 = Introduction
 
-Contract-service is a RESTful microservice for managing the Contracts.
+Beheerder-service is a RESTful microservice for managing the Beheerders.
 
 [[overview]]
 = Overview
 
 [[overview-http-verbs]]
 == HTTP verbs
-Contract-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+Beheerder-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.
 |===
 | Verb | Usage
@@ -40,7 +40,7 @@ use of HTTP verbs.
 
 [[overview-http-status-codes]]
 == HTTP status codes
-Contract-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+Beheerder-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP status codes.
 
 |===
@@ -72,71 +72,71 @@ use of HTTP status codes.
 = Resources
 
 
-[[resources-contract-unit]]
-== Contract
-The Contract resource is used to create, modify and list contracts.
+[[resources-beheerder-unit]]
+== Beheerder
+The Beheerder resource is used to create, modify and list beheerders.
 
 
-[[resource-contract-list]]
-=== Listing contracts
-A `GET` request lists all of the service's contracts.
+[[resource-beheerder-list]]
+=== Listing beheerders
+A `GET` request lists all of the service's beheerders.
 
-include::{snippets}/list-contracts/response-fields.adoc[]
+include::{snippets}/list-beheerders/response-fields.adoc[]
 
 ==== Example request
 
-include::{snippets}/list-contracts/curl-request.adoc[]
+include::{snippets}/list-beheerders/curl-request.adoc[]
 
 ==== Example response
 
-include::{snippets}/list-contracts/http-response.adoc[]
+include::{snippets}/list-beheerders/http-response.adoc[]
 
 
-[[resource-contract-get]]
+[[resource-beheerder-get]]
 === Fetching people
 A `GET` request fetches a specific person.
 
-include::{snippets}/get-contract/response-fields.adoc[]
+include::{snippets}/get-beheerder/response-fields.adoc[]
 
 ==== Example request
 
-include::{snippets}/get-contract/curl-request.adoc[]
+include::{snippets}/get-beheerder/curl-request.adoc[]
 
 ==== Example response
 
-include::{snippets}/get-contract/http-response.adoc[]
+include::{snippets}/get-beheerder/http-response.adoc[]
 
 
-[[resource-contract-create]]
+[[resource-beheerder-create]]
 === Creating people
-A `POST` request creates a new contract unit.
+A `POST` request creates a new beheerder unit.
 
 ==== Request structure
 
-include::{snippets}/create-contract/request-fields.adoc[]
+include::{snippets}/create-beheerder/request-fields.adoc[]
 
 ==== Example request
 
-include::{snippets}/create-contract/curl-request.adoc[]
+include::{snippets}/create-beheerder/curl-request.adoc[]
 
 ==== Example response
 
-include::{snippets}/create-contract/http-response.adoc[]
+include::{snippets}/create-beheerder/http-response.adoc[]
 
 
-[[resource-contract-update]]
+[[resource-beheerder-update]]
 === Updating people
-A `PUT` request updates an existing contract.
+A `PUT` request updates an existing beheerder.
 
 ==== Request structure
 
-include::{snippets}/create-contract/request-fields.adoc[]
+include::{snippets}/create-beheerder/request-fields.adoc[]
 
 ==== Example request
 
-include::{snippets}/update-contract/curl-request.adoc[]
+include::{snippets}/update-beheerder/curl-request.adoc[]
 
 ==== Example response
 
-include::{snippets}/update-contract/http-response.adoc[]
+include::{snippets}/update-beheerder/http-response.adoc[]
 

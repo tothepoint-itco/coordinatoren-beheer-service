@@ -3,6 +3,7 @@ package company.tothepoint;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import company.tothepoint.model.Notification;
 
+import company.tothepoint.model.businessunit.BusinessUnit;
 import company.tothepoint.model.businessunit.BusinessUnitCreatedNotification;
 import company.tothepoint.model.businessunit.BusinessUnitDeletedNotification;
 import company.tothepoint.model.businessunit.BusinessUnitUpdatedNotification;
@@ -19,9 +20,6 @@ import java.util.function.Function;
 
 class Receiver implements MessageListener {
     private static final Logger LOG = LoggerFactory.getLogger(Receiver.class);
-
-    //@Autowired
-    //private ContractRepository contractRepository;
 
     @Autowired
     private BusinessUnitRepository businessUnitRepository;
@@ -41,56 +39,56 @@ class Receiver implements MessageListener {
             notification = Optional.empty();
         }
 
-//        notification.ifPresent( not -> {
+        notification.ifPresent( not -> {
 
-//            switch(not.getTitle()) {
-//                case "businessUnitCreated":
-//                    LOG.debug("EVENT RECEIVED: A business unit was created!");
-//                    Optional<BusinessUnitCreatedNotification> newBusinessUnit;
-//
-//                    try {
-//                        newBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitCreatedNotification.class));
-//                    } catch (IOException e ) {
-//                        newBusinessUnit = Optional.empty();
-//                    }
-//
-//                    newBusinessUnit.ifPresent( businessUnitToCreate ->
-//                        businessUnitRepository.save(businessUnitToCreate.getCreatedBusinessUnit())
-//                    );
-//                    break;
-//
-//                case "businessUnitUpdated":
-//                    LOG.debug("EVENT RECEIVED: A business unit was updated!");
-//                    Optional<BusinessUnitUpdatedNotification> updatedBusinessUnit;
-//
-//                    try {
-//                        updatedBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitUpdatedNotification.class));
-//                    } catch (IOException e) {
-//                        updatedBusinessUnit = Optional.empty();
-//                    }
-//
-//                    updatedBusinessUnit.ifPresent( businessUnitToUpdate ->
-//                        businessUnitRepository.save(businessUnitToUpdate.getUpdatedBusinessUnit())
-//                    );
-//                    break;
-//
-//                case "businessUnitDeleted":
-//                    LOG.debug("EVENT RECEIVED: A business unit was deleted!");
-//                    Optional<BusinessUnitDeletedNotification> deletedBusinessUnit;
-//
-//                    try {
-//                        deletedBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitDeletedNotification.class));
-//                    } catch (IOException e) {
-//                        deletedBusinessUnit = Optional.empty();
-//                    }
-//
-//                    deletedBusinessUnit.ifPresent( businessUnitToDelete ->
-//                        businessUnitRepository.delete(businessUnitToDelete.getDeletedBusinessUnitId())
-//                    );
-//
-//                    break;
-//
-//
+            switch(not.getTitle()) {
+                case "businessUnitCreated":
+                    LOG.debug("EVENT RECEIVED: A business unit was created!");
+                    Optional<BusinessUnitCreatedNotification> newBusinessUnit;
+
+                    try {
+                        newBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitCreatedNotification.class));
+                    } catch (IOException e ) {
+                        newBusinessUnit = Optional.empty();
+                    }
+
+                    newBusinessUnit.ifPresent( businessUnitToCreate ->
+                        businessUnitRepository.save(businessUnitToCreate.getCreatedBusinessUnit())
+                    );
+                    break;
+
+                case "businessUnitUpdated":
+                    LOG.debug("EVENT RECEIVED: A business unit was updated!");
+                    Optional<BusinessUnitUpdatedNotification> updatedBusinessUnit;
+
+                    try {
+                        updatedBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitUpdatedNotification.class));
+                    } catch (IOException e) {
+                        updatedBusinessUnit = Optional.empty();
+                    }
+
+                    updatedBusinessUnit.ifPresent( businessUnitToUpdate ->
+                        businessUnitRepository.save(businessUnitToUpdate.getUpdatedBusinessUnit())
+                    );
+                    break;
+
+                case "businessUnitDeleted":
+                    LOG.debug("EVENT RECEIVED: A business unit was deleted!");
+                    Optional<BusinessUnitDeletedNotification> deletedBusinessUnit;
+
+                    try {
+                        deletedBusinessUnit = Optional.of(objectMapper.readValue(message.getBody(), BusinessUnitDeletedNotification.class));
+                    } catch (IOException e) {
+                        deletedBusinessUnit = Optional.empty();
+                    }
+
+                    deletedBusinessUnit.ifPresent( businessUnitToDelete ->
+                        businessUnitRepository.delete(businessUnitToDelete.getDeletedBusinessUnitId())
+                    );
+
+                    break;
+
+
 //                case "bediendeCreated":
 //                    LOG.debug("EVENT RECEIVED: A bediende was created!");
 //                    Optional<BediendeCreatedNotification> newBediende;
@@ -138,16 +136,16 @@ class Receiver implements MessageListener {
 //                    break;
 //
 //
-//                default:
-//                    LOG.debug("EVENT RECEIVED: Unknown event!");
-//            }
+                default:
+                    LOG.debug("EVENT RECEIVED: Unknown event!");
+            }
 
-//        });
+        });
 
     }
 
 
-
+//
 //    private void reactToMessage(Function<BusinessUnit, BusinessUnit> repoFunction, byte[] message){
 //        Optional<NewBusinessUnitNotification> buNotification;
 //        System.out.println("debug1");

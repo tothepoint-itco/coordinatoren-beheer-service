@@ -16,7 +16,13 @@ eureka:
         initialInstanceInfoReplicationIntervalSeconds: 5
 
 server:
-  port: 8081
+  port: 8084
+  contextPath: /uaa
+
+
+security:
+    user:
+        password: password
 
 logging:
   level:

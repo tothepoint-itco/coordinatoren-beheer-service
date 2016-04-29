@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = BeheerApplication.class)
 @WebAppConfiguration
-public class ContractApplicationTests {
+public class BeheerApplicationTests {
 
 	@Test
 	public void contextLoads() {
