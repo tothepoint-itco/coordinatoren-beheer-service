@@ -23,6 +23,12 @@ public class Beheerder {
     private String email;
     @NotNull
     @Size(min = 1, max = 255)
+    private String gebruikersNaam;
+
+
+
+    @NotNull
+    @Size(min = 1, max = 255)
     private String passwoord;
 
     public Beheerder(){}
@@ -31,6 +37,13 @@ public class Beheerder {
         this.familieNaam = familieNaam;
         this.email = email;
         this.passwoord = passwoord;
+    }
+    public String getGebruikersNaam() {
+        return gebruikersNaam;
+    }
+
+    public void setGebruikersNaam(String gebruikersNaam) {
+        this.gebruikersNaam = gebruikersNaam;
     }
 
     public String getId() {

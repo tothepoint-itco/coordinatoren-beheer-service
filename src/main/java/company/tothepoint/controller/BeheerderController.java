@@ -30,9 +30,10 @@ public class BeheerderController {
     private RollenRepository rollenRepo;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Beheerder>> getAllBeheerders( @RequestHeader(value="Authorization") String authorizationHeader, Principal crurrentUser) {
+    public ResponseEntity<List<Beheerder>> getAllBeheerders() {
         return new ResponseEntity<>(beheerRepo.findAll(), HttpStatus.OK);
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<Beheerder> getBeheerder(@PathVariable("id") String id){
         Optional<Beheerder> beheerderOption = Optional.ofNullable(beheerRepo.findOne(id));

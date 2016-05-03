@@ -5,4 +5,5 @@ import company.tothepoint.model.businessunit.BusinessUnit;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface BeheerderRepository extends MongoRepository<Beheerder, String>{
+   Beheerder findByGebruikersNaamAndPasswoord(String gebruikersNaam, String passwoord);
 }
