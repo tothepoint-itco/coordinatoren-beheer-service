@@ -24,6 +24,12 @@ security:
     user:
         password: password
 
+beheerder-service:
+  token:
+    header: X-Auth-Token
+    secret: flatMap43
+    expiration: 604800
+
 logging:
   level:
     root: WARN

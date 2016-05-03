@@ -5,9 +5,6 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- * Created by butrint on 22/04/16.
- */
 public class Beheerder {
     @Id
     private String id;

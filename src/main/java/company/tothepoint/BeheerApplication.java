@@ -43,29 +43,6 @@ public class BeheerApplication {
         return new Queue(BEHEER_QUEUE, true, false, false);
     }
 
-//    @EnableAuthorizationServer
-//    protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
-//        @Autowired
-//        private AuthenticationManager authenticationManager;
-//
-//        @Override
-//        public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-//            endpoints.authenticationManager(authenticationManager);
-//        }
-//
-//        @Override
-//        public void configure(ClientDetailsServiceConfigurer clients)
-//                throws Exception {
-//            clients.inMemory()
-//                    .withClient("acme")
-//                    .secret("acmesecret")
-//                    .authorizedGrantTypes("authorization_code","implicit",
-//                            "refresh_token", "password").scopes("openid");
-//
-//        }
-//    }
-
-
 
     @Bean
     Jackson2JsonMessageConverter jackson2JsonMessageConverter(ObjectMapper objectMapper) {
@@ -79,15 +56,6 @@ public class BeheerApplication {
         return new TopicExchange(BEHEER_EXCHANGE, true, false);
     }
 
-//    @Bean
-//    TopicExchange businessUnitTopicExchange() {
-//        return new TopicExchange(BUSINESSUNIT_EXCHANGE, true, false);
-//    }
-
-//    @Bean
-//    Binding businessUnitBinding(Queue queue, TopicExchange businessUnitTopicExchange) {
-//        return BindingBuilder.bind(queue).to(businessUnitTopicExchange).with(BUSINESSUNIT_ROUTING);
-//    }
     @Bean
     Binding beheerBinding(Queue queue, TopicExchange beheerTopicExchange) {
         return BindingBuilder.bind(queue).to(beheerTopicExchange).with(BEHEER_ROUTING);
