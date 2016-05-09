@@ -17,12 +17,8 @@ eureka:
 
 server:
   port: 8084
-  contextPath: /uaa
 
 
-security:
-    user:
-        password: password
 
 beheerder-service:
   token:
@@ -34,6 +30,7 @@ logging:
   level:
     root: WARN
     company.tothepoint: DEBUG
+
 ---
 
 spring:
@@ -55,3 +52,4 @@ eureka:
     client:
         serviceUrl:
             defaultZone: http://discovery:8761/eureka/
+---

@@ -4,6 +4,6 @@ import company.tothepoint.model.CerberusUser;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<CerberusUser, String> {
-    CerberusUser findByUsername(String userName);
+    public CerberusUser findByUsername(String userName);
 }
 

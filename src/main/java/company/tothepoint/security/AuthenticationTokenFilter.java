@@ -1,6 +1,8 @@
 package company.tothepoint.security;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFilter {
+    private final Logger logger = Logger.getLogger(AuthenticationTokenFilter.class);
 
     @Autowired
     private TokenUtils tokenUtils;
@@ -25,7 +28,7 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-
+        logger.error("DIEDE!");
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String authToken = httpRequest.getHeader("X-Auth-Token");
         String username = this.tokenUtils.getUsernameFromToken(authToken);
