@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Date;
 
 public class CerberusUser implements UserDetails {
-    private Long id;
+    private String id;
     private String username;
     private String password;
     private String email;
@@ -24,7 +24,7 @@ public class CerberusUser implements UserDetails {
         super();
     }
 
-    public CerberusUser(Long id, String username, String password, String email, Date lastPasswordReset, Collection<? extends GrantedAuthority> authorities) {
+    public CerberusUser(String id, String username, String password, String email, Date lastPasswordReset, Collection<? extends GrantedAuthority> authorities) {
         this.setId(id);
         this.setUsername(username);
         this.setPassword(password);
@@ -33,11 +33,11 @@ public class CerberusUser implements UserDetails {
         this.setAuthorities(authorities);
     }
 
-    public Long getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

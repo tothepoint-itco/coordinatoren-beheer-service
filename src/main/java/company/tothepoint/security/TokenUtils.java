@@ -22,7 +22,7 @@ public class TokenUtils {
     private String secret;
 
     @Value("${beheerder-service.token.expiration}")
-    private Long expiration;
+    private long expiration;
 
     private final String AUDIENCE_UNKNOWN   = "unknown";
     private final String AUDIENCE_WEB       = "web";
@@ -44,7 +44,7 @@ public class TokenUtils {
         Date created;
         try {
             final Claims claims = this.getClaimsFromToken(token);
-            created = new Date((Long) claims.get("created"));
+            created = new Date((long) claims.get("created"));
         } catch (Exception e) {
             created = null;
         }

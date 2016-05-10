@@ -1,6 +1,8 @@
 package company.tothepoint.service.impl;
 
+import company.tothepoint.domain.User;
 import company.tothepoint.model.CerberusUser;
+import company.tothepoint.model.CerberusUserFactory;
 import company.tothepoint.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,12 +17,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        CerberusUser user = this.userRepository.findByUsername(username);
+        User user = this.userRepository.findByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {
-            return user;
+            return CerberusUserFactory.create(user);
         }
     }
 }

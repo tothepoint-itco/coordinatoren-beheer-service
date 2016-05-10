@@ -42,28 +42,27 @@ public class AuthenticationController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> authenticationRequest(@RequestBody AuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
-
-        // Perform the authentication
-        logger.error("Authentication request!!");
+        logger.error("In POST REQUEST");
         logger.error(authenticationRequest.getUsername());
         logger.error(authenticationRequest.getPassword());
-
         Authentication authentication = this.authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticationRequest.getUsername(),
                         authenticationRequest.getPassword()
                 )
         );
-        logger.error("foo");
+
+
+        logger.error("DIEDEEEE!!!!");
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
         // Reload password post-authentication so we can generate token
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
         String token = this.tokenUtils.generateToken(userDetails, device);
-        // Return the token
         return ResponseEntity.ok(new AuthenticationResponse(token));
     }
 
-    @RequestMapping(value = "/auth/refresh", method = RequestMethod.GET)
+    @RequestMapping(value = "/refresh", method = RequestMethod.GET)
     public ResponseEntity<?> authenticationRequest(HttpServletRequest request) {
         String token = request.getHeader(this.tokenHeader);
         String username = this.tokenUtils.getUsernameFromToken(token);

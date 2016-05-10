@@ -4,6 +4,8 @@ spring:
   jackson:
       serialization:
         write_dates_as_timestamps: false
+        #INDENT_OUTPUT: true
+
 
 eureka:
     instance:
@@ -18,6 +20,9 @@ eureka:
 server:
   port: 8084
 
+error:
+    whitelabel:
+        enabled=true
 
 
 beheerder-service:
@@ -25,6 +30,7 @@ beheerder-service:
     header: X-Auth-Token
     secret: flatMap43
     expiration: 604800
+
 
 logging:
   level:
