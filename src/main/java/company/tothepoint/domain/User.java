@@ -1,4 +1,5 @@
 package company.tothepoint.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import company.tothepoint.domain.DomainBase;
 import org.springframework.data.annotation.Id;
 
@@ -9,6 +10,7 @@ public class User extends DomainBase {
     private static final long serialVersionUID = 2353528370345499815L;
     private String id;
     private String username;
+    @JsonIgnore
     private String password;
     private String email;
     private Date lastPasswordReset;

@@ -21,9 +21,6 @@ public class Beheerder {
     @NotNull
     @Size(min = 1, max = 255)
     private String gebruikersNaam;
-
-
-
     @NotNull
     @Size(min = 1, max = 255)
     private String passwoord;

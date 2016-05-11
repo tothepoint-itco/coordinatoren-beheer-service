@@ -27,7 +27,7 @@ error:
 
 beheerder-service:
   token:
-    header: X-Auth-Token
+    header: Authorization
     secret: flatMap43
     expiration: 604800
 
