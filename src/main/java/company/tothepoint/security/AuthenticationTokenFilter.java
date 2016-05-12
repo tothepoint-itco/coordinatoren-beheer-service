@@ -31,12 +31,19 @@ public class AuthenticationTokenFilter extends UsernamePasswordAuthenticationFil
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         logger.error("Do filter log");
         String authToken = httpRequest.getHeader("Authorization");
+        logger.error("Authorization in dofilter log");
+        logger.error(authToken);
         String username = this.tokenUtils.getUsernameFromToken(authToken);
-
+        logger.error("Get username in dofilter log");
+        logger.error(username);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            logger.error("Inside first if dofilter log");
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
             if (this.tokenUtils.validateToken(authToken, userDetails)) {
+                logger.error("Inside second if dofilter log");
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                logger.error("Authentication in second if  dofilter log");
+                logger.error(authentication);
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }

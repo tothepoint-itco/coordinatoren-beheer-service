@@ -52,9 +52,6 @@ public class AuthenticationController {
                 )
         );
 
-
-        logger.error("DIEDEEEE!!!!");
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         // Reload password post-authentication so we can generate token
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
